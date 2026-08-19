@@ -69,12 +69,27 @@ main {
     grid-area: titles;
 }
 
-.hero h1 {
+.hero h1,
+.interstitial h1 {
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     font-size: 51px;
     font-weight: 400;
     line-height: 1.1;
     margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Interstitial pages (/resume, /bookme): heading + titles, then redirect */
+.interstitial {
+    padding-top: 80px;
+    padding-bottom: 120px;
+}
+
+.interstitial h1 {
+    margin-bottom: 30px;
+}
+
+.footer-center {
     text-align: center;
 }
 
@@ -281,7 +296,8 @@ footer p {
         padding-top: 16px;
     }
 
-    .hero h1 {
+    .hero h1,
+    .interstitial h1 {
         font-size: 36px;
     }
 
