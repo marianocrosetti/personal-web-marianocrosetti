@@ -89,6 +89,11 @@ main {
     margin-bottom: 30px;
 }
 
+.interstitial-icon {
+    display: block;
+    margin: 30px auto;
+}
+
 .footer-center {
     text-align: center;
 }
