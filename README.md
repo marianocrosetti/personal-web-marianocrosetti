@@ -30,10 +30,28 @@ Alignment, hover and borders come from the classes — nothing else to do.
 
 ## Other editable content
 
-- **Subtitles**: the `<p class="title">` lines inside `hero-titles`.
+- **Subtitles** (Research Engineer / Applied AI @ Aleph / ...): single source of truth
+  in the `TITLES` array at the top of `site.js` — edit it once and the home page and
+  every interstitial page update together.
 - **Form fields**: each is a `<div class="form-group">` with a label + input.
 - **Profile photo**: replace `assets/profile.jpg` (desktop crops it to 622:465 with
   rounded corners; mobile crops it to a circle — both automatic via CSS).
+
+## Interstitial pages (/resume, /bookme, /feedback)
+
+Pages that show the heading, the shared subtitles, an icon and a
+"(redirecting to X ...)" notice, then redirect after 2 seconds.
+They all share the same structure, rendered by `site.js`; each page declares
+only its own inputs:
+
+- **Icon and placeholder**: data attributes on `<main class="interstitial">`:
+  `data-icon` / `data-icon-width` / `data-icon-height` and `data-redirect`
+  (fills "(redirecting to <X> ...)").
+- **Redirect target and delay**: the `<meta http-equiv="refresh">` tag in the page's
+  `<head>` — works even without JavaScript.
+
+To add a new one: copy any of the three folders, adjust the meta refresh URL,
+the `<title>` and the data attributes.
 
 ## Contact form
 
@@ -76,6 +94,10 @@ FormSubmit (no signup), or Netlify Forms (requires hosting on Netlify).
 .
 ├── index.html      # Main HTML file (includes the small form-submit script)
 ├── styles.css      # All styling, including the mobile breakpoint (≤750px)
+├── site.js         # TITLES source of truth + interstitial renderer
+├── resume/         # Interstitial -> resume PDF
+├── bookme/         # Interstitial -> Calendly
+├── feedback/       # Interstitial -> Google feedback form
 ├── CNAME           # Custom domain for GitHub Pages (new.marianocrosetti.com)
 ├── assets/
 │   ├── profile.jpg # Profile photo
