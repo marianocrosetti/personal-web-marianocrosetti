@@ -68,7 +68,7 @@ FormSubmit (no signup), or Netlify Forms (requires hosting on Netlify).
 
 ## Deployment (already live)
 
-- **Repo**: https://github.com/marianocrosetti/web-marianocrosetti-com (this folder is a
+- **Repo**: https://github.com/marianocrosetti/personal-web-marianocrosetti (this folder is a
   nested git repo inside personal-hq, gitignored there — commit from here, not from the HQ root).
 - **Hosting**: GitHub Pages, serving branch `main` / root. **Deploying = `git push`**;
   Pages rebuilds automatically in ~30s.
