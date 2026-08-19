@@ -1,6 +1,7 @@
 # Mariano Crosetti - Personal Website
 
-A static personal website (copy of marianocrosetti.com). Pure HTML + CSS, no build step, no backend.
+A static personal website (copy of marianocrosetti.com), live at **https://new.marianocrosetti.com**.
+HTML + CSS + one tiny shared JS (`site.js`) — no build step, no backend.
 
 ## How it's organized
 
@@ -65,28 +66,19 @@ Submissions arrive at marianojosecrosetti@gmail.com with subject "Nuevo mensaje 
 If the 50/month free tier ever falls short, alternatives explored: Web3Forms (250/month),
 FormSubmit (no signup), or Netlify Forms (requires hosting on Netlify).
 
-## Deploy to GitHub Pages
+## Deployment (already live)
 
-1. Create a new repository on GitHub named `yourusername.github.io` for a user site, or any name for a project site
+- **Repo**: https://github.com/marianocrosetti/web-marianocrosetti-com (this folder is a
+  nested git repo inside personal-hq, gitignored there — commit from here, not from the HQ root).
+- **Hosting**: GitHub Pages, serving branch `main` / root. **Deploying = `git push`**;
+  Pages rebuilds automatically in ~30s.
+- **Domain**: `new.marianocrosetti.com` via the `CNAME` file + a CNAME DNS record
+  (`new` → `marianocrosetti.github.io`) in the Wix DNS panel (marianocrosetti.com's
+  nameservers are Wix). HTTPS enforced (cert auto-provisioned by GitHub/Let's Encrypt).
 
-2. Initialize git and push:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin git@github.com:yourusername/repo-name.git
-   git push -u origin main
-   ```
-
-3. Enable GitHub Pages:
-   - Go to repository Settings > Pages
-   - Source: Deploy from a branch
-   - Branch: `main` / `root`
-   - Save
-
-4. Your site will be available at:
-   - User site: `https://yourusername.github.io`
-   - Project site: `https://yourusername.github.io/repo-name`
+Note: the /resume interstitial redirects to the PDF still hosted on Wix. If the Wix
+site is ever taken down, upload the PDF here (e.g. `assets/resume.pdf`) and update
+the meta refresh URL in `resume/index.html`.
 
 ## File Structure
 
