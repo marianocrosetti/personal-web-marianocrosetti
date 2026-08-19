@@ -1,0 +1,86 @@
+# Mariano Crosetti - Personal Website
+
+A static personal website (copy of marianocrosetti.com). Pure HTML + CSS, no build step, no backend.
+
+## How it's organized
+
+All styling lives in `styles.css` via classes — there is no inline CSS in the HTML.
+You never need to touch CSS to add or edit content; you only edit repetitive HTML blocks in `index.html`.
+
+The layout is responsive: desktop shows the photo on the left column, mobile (≤750px)
+shows title → circular photo → subtitles → buttons, mirroring the Wix original.
+
+## Adding a link button
+
+Each button (WORK, LEARN, ...) is a 4-line block inside `<div class="links">`:
+
+```html
+<div class="link-row">
+    <img class="icon" src="assets/logos/my-icon.png" alt="Description">
+    <a href="https://..." target="_blank" class="link-button">MY LABEL</a>
+</div>
+```
+
+Copy the block and change three things: icon `src`, `href` and the label.
+
+- Bigger icon (like Calendar/Feedback/Resume): use `class="icon icon-lg"`.
+- Filled black style (like MY RESUME): use `class="link-button filled"`.
+
+Alignment, hover and borders come from the classes — nothing else to do.
+
+## Other editable content
+
+- **Subtitles**: the `<p class="title">` lines inside `hero-titles`.
+- **Form fields**: each is a `<div class="form-group">` with a label + input.
+- **Profile photo**: replace `assets/profile.jpg` (desktop crops it to 622:465 with
+  rounded corners; mobile crops it to a circle — both automatic via CSS).
+
+## Contact form
+
+Already wired to Formspree (`https://formspree.io/f/xwlewzev`), free tier: 50 submissions/month.
+Submissions arrive at marianojosecrosetti@gmail.com with subject "Nuevo mensaje desde marianocrosetti.com".
+
+- Submits via AJAX: the visitor stays on the page and sees an inline confirmation.
+- Includes a honeypot field (`_gotcha`) for spam protection.
+- Optional hardening: in the Formspree dashboard, Settings → Restrict to Domain.
+
+If the 50/month free tier ever falls short, alternatives explored: Web3Forms (250/month),
+FormSubmit (no signup), or Netlify Forms (requires hosting on Netlify).
+
+## Deploy to GitHub Pages
+
+1. Create a new repository on GitHub named `yourusername.github.io` for a user site, or any name for a project site
+
+2. Initialize git and push:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin git@github.com:yourusername/repo-name.git
+   git push -u origin main
+   ```
+
+3. Enable GitHub Pages:
+   - Go to repository Settings > Pages
+   - Source: Deploy from a branch
+   - Branch: `main` / `root`
+   - Save
+
+4. Your site will be available at:
+   - User site: `https://yourusername.github.io`
+   - Project site: `https://yourusername.github.io/repo-name`
+
+## File Structure
+
+```
+.
+├── index.html      # Main HTML file (includes the small form-submit script)
+├── styles.css      # All styling, including the mobile breakpoint (≤750px)
+├── CNAME           # Custom domain for GitHub Pages (new.marianocrosetti.com)
+├── assets/
+│   ├── profile.jpg # Profile photo
+│   ├── logos/      # Button icons (downloaded from the original Wix site)
+│   └── mobile/     # Reference screenshots of the original mobile layout (local only, gitignored)
+├── task/           # Reference screenshot of the original desktop layout (local only, gitignored)
+└── README.md       # This file
+```

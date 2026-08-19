@@ -1,0 +1,6 @@
+.DS_Store
+
+# Local working references, not part of the published site
+task/
+assets/mobile/
+assets/IMG_20190731_190201_Bokeh.jpg

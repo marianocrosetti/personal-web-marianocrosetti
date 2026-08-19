@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariano Crosetti | Research Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">MARIANO CROSETTI</a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-heading">
+                <h1>MARIANO<br>CROSETTI</h1>
+                <div class="divider"></div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/profile.jpg" alt="Mariano Crosetti">
+            </div>
+            <div class="hero-titles">
+                <p class="title">Research Engineer</p>
+                <p class="title">Applied AI @ Aleph (YC S21)</p>
+                <p class="title">ICPC Coach & LATAM Champion</p>
+            </div>
+            <div class="links">
+                    <div class="link-row">
+                        <img class="icon" src="assets/logos/6ea5b4a88f0b4f91945b40499aa0af00.png" alt="LinkedIn">
+                        <a href="https://www.linkedin.com/in/marianocrosetti/" target="_blank" class="link-button">WORK</a>
+                    </div>
+                    <div class="link-row">
+                        <img class="icon" src="assets/logos/b5a745_aa29714ecf004f14a2adea9c9ab2e087~mv2.png" alt="Medium">
+                        <a href="https://mcrosetti.medium.com/" target="_blank" class="link-button">LEARN</a>
+                    </div>
+                    <div class="link-row">
+                        <img class="icon" src="assets/logos/c7d035ba85f6486680c2facedecdcf4d.png" alt="Twitter">
+                        <a href="https://twitter.com/MarianoCrosetti" target="_blank" class="link-button">REFLECT</a>
+                    </div>
+                    <div class="link-row">
+                        <img class="icon" src="assets/logos/01c3aff52f2a4dffa526d7a9843d46ea.png" alt="Instagram">
+                        <a href="https://www.instagram.com/mariano.crosetti/" target="_blank" class="link-button">CHILL</a>
+                    </div>
+                    <div class="link-row">
+                        <img class="icon icon-lg" src="assets/logos/b5a745_e87f3761dc3b4a7ca138c30750b12415~mv2.jpg" alt="Calendar">
+                        <a href="https://www.marianocrosetti.com/bookme" target="_blank" class="link-button">MEET</a>
+                    </div>
+                    <div class="link-row">
+                        <img class="icon icon-lg" src="assets/logos/b5a745_0609482640e140ea82282eb1321ba157~mv2.jpg" alt="Feedback">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXQfX_PICUN2XXdv9Cm9RURPsmha02120gk6J210BABWLQBA/viewform" target="_blank" class="link-button">FEEDBACK</a>
+                    </div>
+                    <div class="link-row">
+                        <img class="icon icon-lg" src="assets/logos/b5a745_a855af44139e4768b407a8042f9d9670~mv2.png" alt="Resume">
+                        <a href="https://www.marianocrosetti.com/resume" target="_blank" class="link-button filled">MY RESUME</a>
+                    </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact me</h2>
+            <form id="contact-form" action="https://formspree.io/f/xwlewzev" method="POST">
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde marianocrosetti.com">
+                <input type="text" name="_gotcha" class="gotcha" tabindex="-1" autocomplete="off">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Write your message</label>
+                    <textarea id="message" name="message" placeholder="Hi Mariano, I would like to know more about XXX"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send</button>
+                <p id="form-status" class="form-status" role="status"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Created by Mariano Crosetti</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+        const submitBtn = form.querySelector('.submit-btn');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            submitBtn.disabled = true;
+            status.textContent = '';
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    form.reset();
+                    status.textContent = 'Thanks! Your message has been sent.';
+                    status.classList.remove('error');
+                } else {
+                    const data = await response.json().catch(() => ({}));
+                    status.textContent = (data.errors && data.errors.map(e => e.message).join(', '))
+                        || 'Oops! Something went wrong. Please try again.';
+                    status.classList.add('error');
+                }
+            } catch {
+                status.textContent = 'Network error. Please try again.';
+                status.classList.add('error');
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
