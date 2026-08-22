@@ -12,17 +12,17 @@ shows title → circular photo → subtitles → buttons, mirroring the Wix orig
 
 ## Adding a link button
 
-Each button (WORK, LEARN, ...) is a 4-line block inside `<div class="links">` in `index.html`:
+Add an entry to the `LINKS` array in `constants.js`:
 
-```html
-<div class="link-row">
-    <img class="icon" src="assets/logos/my-icon.png" alt="Description">
-    <a href="https://..." target="_blank" class="link-button">MY LABEL</a>
-</div>
+```js
+{ label: 'MY LABEL', href: 'https://...', icon: '/assets/logos/my-icon.png', alt: 'Description' }
 ```
 
+Options: `lg: true` for a bigger icon, `filled: true` for the black filled style.
+External hrefs open in a new tab automatically.
+
 ## Other editable content
-See `TITLES` constant in `site.js`
+See `constants.js` (`TITLES`, `INTERSTITIALS`, ...). `site.js` is rendering logic only.
 
 ## Interstitial pages (/resume, /bookme, /feedback)
 
@@ -31,7 +31,7 @@ Pages that show the heading, the shared subtitles, an icon and a
 
 The `index.html` inside each folder is an identical stub (GitHub Pages needs a
 physical file per path); everything page-specific — title, icon, redirect label
-and target URL — lives in the `INTERSTITIALS` map in `site.js`, keyed by path.
+and target URL — lives in the `INTERSTITIALS` map in `constants.js`, keyed by path.
 
 To add a new one: copy any of the three folders and add an entry to `INTERSTITIALS`.
 
