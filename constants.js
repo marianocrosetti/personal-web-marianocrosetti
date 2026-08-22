@@ -20,10 +20,13 @@ const LINKS = [
     { label: 'MY RESUME', href: '/resume/',                                      icon: '/assets/logos/b5a745_a855af44139e4768b407a8042f9d9670~mv2.png', alt: 'Resume',   lg: true, filled: true },
 ];
 
-// Interstitial pages: URL path -> page config.
-// The index.html files inside these folders are identical stubs;
-// everything page-specific (title, icon, redirect) lives here.
-// To add a new interstitial: copy any of the folders and add an entry here.
+// Interstitial pages: URL path -> page config. They show the heading, the
+// shared TITLES, an icon and a "(redirecting to <label> ...)" notice, then
+// redirect to redirectUrl after REDIRECT_DELAY_MS.
+// The index.html inside each folder is an identical stub — GitHub Pages needs
+// a physical file per path — so everything page-specific lives here.
+// To add a new interstitial: copy any of the three folders (e.g. resume/)
+// and add an entry here keyed by its path.
 const INTERSTITIALS = {
     '/resume/': {
         title: 'Resume | Mariano Crosetti',
