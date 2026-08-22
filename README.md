@@ -2,6 +2,8 @@
 
 A static personal website: https://new.marianocrosetti.com
 
+Repo: https://github.com/marianocrosetti/personal-web-marianocrosetti
+
 ## Configuration
 All personalisation needed is configurable in `constants.js`.
 
