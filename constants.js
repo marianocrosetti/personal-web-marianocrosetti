@@ -32,7 +32,7 @@ const INTERSTITIALS = {
         title: 'Resume | Mariano Crosetti',
         icon: { src: '/assets/logos/resume.avif', width: 147, height: 150 },
         redirectLabel: 'resume',
-        redirectUrl: 'https://b5a745c0-d004-424f-b8eb-8f7314ace9ed.usrfiles.com/ugd/b5a745_32fd08cf262c4e71b292e445b77995e0.pdf',
+        redirectUrl: '/assets/resume.pdf',
     },
     '/bookme/': {
         title: 'bookme | Mariano Crosetti',
